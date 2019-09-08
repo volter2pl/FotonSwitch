@@ -1,13 +1,19 @@
+void ledOn() {
+  digitalWrite(BUILTIN_LED, LOW);
+}
+
+void ledOff() {
+  digitalWrite(BUILTIN_LED, HIGH);
+}
+
 void changeState(int state) {
   if (fotonState != state) {
     fotonState = state;
     if (state) {
-      Serial.println("new state 1");
-      digitalWrite(LED_BUILTIN, LOW);
+      ledOn();
       digitalWrite(RELAY, HIGH);
     } else {
-      Serial.println("new state 0");
-      digitalWrite(LED_BUILTIN, HIGH);
+      ledOff();
       digitalWrite(RELAY, LOW);
     }
   }

@@ -1,0 +1,7 @@
+/* WiFi config*/
+const char * wifi_ssid = "ssid";
+const char * wifi_pass = "example";
+
+/* WebSocket */
+int port = 81;
+

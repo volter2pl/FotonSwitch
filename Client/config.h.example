@@ -1,0 +1,8 @@
+/* WiFi config*/
+const char * wifi_ssid = "ssid";
+const char * wifi_pass = "pass";
+
+/* WebSocket */
+String host = "192.168.4.1";
+int port = 81;
+
