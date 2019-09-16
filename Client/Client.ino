@@ -61,9 +61,7 @@ void setup() {
   ledOn();
 
   WiFiMulti.addAP(wifi_ssid, wifi_pass);
-  while(WiFiMulti.run() != WL_CONNECTED) {
-    delay(100);
-  }
+  connecting();
 
   webSocket.begin(host, port, "/");
   webSocket.onEvent(webSocketEvent);
@@ -71,7 +69,20 @@ void setup() {
   ledOff();
 }
 
+void connecting() {
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.print(".");
+  }
+}
+
 void loop() {
+  if (WiFi.status() != WL_CONNECTED) {
+    ledOn();
+    connecting();
+    ledOff();
+  }
+  
   webSocket.loop();
 }
 
